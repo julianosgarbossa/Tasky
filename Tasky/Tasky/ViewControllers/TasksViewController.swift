@@ -61,6 +61,16 @@ class TasksViewController: UIViewController {
             tasksTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
+    
+    private func createTaskCheckmarkButton() -> UIButton {
+        let completeButton = UIButton()
+        let symbolName = "checkmark.circle"
+        let configuration = UIImage.SymbolConfiguration(pointSize: 24)
+        let image = UIImage(systemName: symbolName, withConfiguration: configuration)
+        completeButton.setImage(image, for: .normal)
+        completeButton.frame = .init(x: 0, y: 0, width: 24, height: 24)
+        return completeButton
+    }
 }
 
 // MARK: - Tableview DataSource and Delegate
@@ -75,6 +85,7 @@ extension TasksViewController: UITableViewDataSource {
         content.text = tasks[indexPath.row].title
         content.secondaryText = tasks[indexPath.row].description ?? ""
         cell.contentConfiguration = content
+        cell.accessoryView = createTaskCheckmarkButton()
         return cell
     }
     
