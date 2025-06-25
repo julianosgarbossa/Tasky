@@ -18,4 +18,5 @@ enum AssetsConstants {
 enum TextConstants {
     static let homeDescriptionLabel = "Prepare-se para conquistar o dia, uma lista de cada vez."
     static let homeTitleButtonLabel = "Vamos começar!"
+    static let headerTitleLabel = "Tarefas"
 }
