@@ -19,4 +19,10 @@ enum TextConstants {
     static let homeDescriptionLabel = "Prepare-se para conquistar o dia, uma lista de cada vez."
     static let homeTitleButtonLabel = "Vamos começar!"
     static let headerTitleLabel = "Tarefas"
+    static let addTaskTitleLabel = "Adicionar tarefa"
+    static let addTaskTitleTaskLabel = "Título"
+    static let addTaskTitleTaskPlaceholder = "Título da tarefa"
+    static let addTaskDescriptionTaskLabel = "Descrição"
+    static let addTaskDescriptionTaskPlaceholder = "Descrição da tarefa"
+    static let addTaskSaveTaskButtonLabel = "Salvar"
 }
