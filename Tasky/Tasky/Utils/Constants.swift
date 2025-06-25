@@ -14,3 +14,8 @@ enum AssetsConstants {
     static let darkPurple = "DarkPurple"
     static let lilac = "Lilac"
 }
+
+enum TextConstants {
+    static let homeDescriptionLabel = "Prepare-se para conquistar o dia, uma lista de cada vez."
+    static let homeTitleButtonLabel = "Vamos começar!"
+}

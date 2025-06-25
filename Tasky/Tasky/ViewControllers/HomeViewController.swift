@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     private lazy var getReadyLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Prepare-se para conquistar o dia, uma lista de cada vez."
+        label.text = TextConstants.homeDescriptionLabel
         label.textColor = UIColor(named: AssetsConstants.darkPurple)
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -39,7 +39,7 @@ class HomeViewController: UIViewController {
     private lazy var getStartedButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Vamos começar!", for: .normal)
+        button.setTitle(TextConstants.homeTitleButtonLabel, for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         button.backgroundColor = UIColor(named: AssetsConstants.darkPurple)
