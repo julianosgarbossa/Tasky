@@ -9,6 +9,8 @@ import UIKit
 
 class AddTaskViewController: UIViewController {
     
+    weak var delegate: TasksViewControllerDelegate?
+    
     private lazy var addNewTaskLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,7 +66,18 @@ class AddTaskViewController: UIViewController {
     
     @objc
     private func didTapSaveTaskButton(sender: UIButton) {
+        guard let titleTask = titleTaskTextField.text, !titleTask.isEmpty else {
+            self.showAlert(message: TextConstants.addTaskSaveAlertMessage)
+            return
+        }
+
+        let newTask = Task(title: titleTask, description: descriptionTaskTextField.text ?? "")
         
+        tasks.append(newTask)
+        
+        dismiss(animated: true)
+        
+        self.delegate?.didAddTask()
     }
     
     override func viewDidLoad() {

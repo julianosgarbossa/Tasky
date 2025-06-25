@@ -25,4 +25,5 @@ enum TextConstants {
     static let addTaskDescriptionTaskLabel = "Descrição"
     static let addTaskDescriptionTaskPlaceholder = "Descrição da tarefa"
     static let addTaskSaveTaskButtonLabel = "Salvar"
+    static let addTaskSaveAlertMessage = "Informe um título para salvar a tarefa."
 }

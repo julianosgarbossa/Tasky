@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TasksViewControllerDelegate: AnyObject {
+    func didAddTask()
+}
+
 class TasksViewController: UIViewController {
     
     private lazy var taskIllustrationImageView: UIImageView = {
@@ -106,8 +110,18 @@ extension TasksViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - Delegate TasksTableViewHeaderDelegate
 extension TasksViewController: TasksTableViewHeaderDelegate {
     func didTapAddTaskButton() {
-        self.navigationController?.present(AddTaskViewController(), animated: true)
+        let addTaskViewController = AddTaskViewController()
+        addTaskViewController.delegate = self
+        self.navigationController?.present(addTaskViewController, animated: true)
+    }
+}
+
+// MARK: - Delegate TasksViewControllerDelegate
+extension TasksViewController: TasksViewControllerDelegate {
+    func didAddTask() {
+        self.tasksTableView.reloadData()
     }
 }
