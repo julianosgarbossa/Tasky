@@ -73,11 +73,9 @@ class AddTaskViewController: UIViewController {
 
         let newTask = Task(title: titleTask, description: descriptionTaskTextField.text ?? "")
         
-        tasks.append(newTask)
+        self.delegate?.didAddTask(newTask: newTask)
         
         dismiss(animated: true)
-        
-        self.delegate?.didAddTask()
     }
     
     override func viewDidLoad() {
