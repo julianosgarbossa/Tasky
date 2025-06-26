@@ -10,10 +10,11 @@ import Foundation
 class TaskRepository {
     
     var tasks: [Task] = []
-    private let userDefaults = UserDefaults.standard
+    private let persintence: PersistenceProtocol
     private let tasksKey = "tasky-app-tasks"
     
-    init() {
+    init(persistence: PersistenceProtocol = UserDefaultsPersistence()) {
+        self.persintence = persistence
         self.loadTasks()
     }
     
@@ -37,14 +38,14 @@ class TaskRepository {
     private func saveTasks() {
         do {
             let tasksData = try JSONEncoder().encode(tasks)
-            userDefaults.setValue(tasksData, forKey: tasksKey)
+            persintence.saveData(data: tasksData, key: tasksKey)
         } catch {
             print("ocorreu um erro ao salvar as tarefas: \(error)")
         }
     }
     
     private func loadTasks() {
-        guard let tasksData = userDefaults.data(forKey: tasksKey) else { return }
+        guard let tasksData = persintence.loadData(key: tasksKey) else { return }
         do {
             tasks = try JSONDecoder().decode([Task].self, from: tasksData)
         } catch {
